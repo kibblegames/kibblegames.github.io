@@ -29,35 +29,45 @@
 
 'use strict';
 
-var KTest;
+var KTest = (function() {
 
-KTest.prototype.init = function() {
-    
-    var $head = $('head');
-    $head.append('<link rel="stylesheet" type="text/css" href="//code.jquery.com/qunit/qunit-1.21.0.css" >');
-    
-    var testResultsMarkup = '<div id="ktest-results" >';
-    testResultsmarkup +=        '<div id="qunit-tests"></div>';
-    testResultsmarkup +=        '<div id="qunit-fixture"></div>';
-    testResultsmarkup +=        '<script src="//code.jquery.com/qunit/qunit-1.21.0.js"></script>';
-    testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
-    testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
-    testResultsmarkup +=    '</div>';
-    var $body = $('body');
-    $body.append( testResultsMarkup );
-    
-    // this should load and define QUnit for use.
-};
-
-
-KTest.prototype.assert = function( booleanExpression, testName ) {
-    
-    if (QUnit == undefined)
-        return;
+    function Library() {
         
-    QUnit.test( testName, function( assert ) {
+        var self = this;
+        self.init();
+    };
+    
+    Library.prototype.init = function() {
         
-        assert.ok( !booleanExpression, testName + " Failed!" );
-    });
-};
+        var $head = $('head');
+        $head.append('<link rel="stylesheet" type="text/css" href="//code.jquery.com/qunit/qunit-1.21.0.css" >');
+        
+        var testResultsMarkup = '<div id="ktest-results" >';
+        testResultsmarkup +=        '<div id="qunit-tests"></div>';
+        testResultsmarkup +=        '<div id="qunit-fixture"></div>';
+        testResultsmarkup +=        '<script src="//code.jquery.com/qunit/qunit-1.21.0.js"></script>';
+        testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
+        testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
+        testResultsmarkup +=    '</div>';
+        var $body = $('body');
+        $body.append( testResultsMarkup );
+        
+        // this should load and define QUnit for use.
+    };
+    
+    
+    Library.prototype.assert = function( booleanExpression, testName ) {
+        
+        if (QUnit == undefined)
+            return;
+            
+        QUnit.test( testName, function( assert ) {
+            
+            assert.ok( !booleanExpression, testName + " Failed!" );
+        });
+    };
+
+    return new Library();
+    
+})();
 

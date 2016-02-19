@@ -157,13 +157,17 @@ Function.prototype.def = function( baseClassorObject ) {
 *
 */
 var KLib = (function(){
-
-    KLib.prototype.init = function() {
+    
+    function Library() {
+        var self = this;
+        self.init();
+    };
         
-    }
-    
-    
-    KLib.prototype.disableSource = function() {
+    Library.prototype.init = function() {
+            
+    };
+                
+    Library.prototype.disableSource = function() {
         /** ==================================================================================
         *
         * @name KLib.disableSource();
@@ -213,5 +217,7 @@ var KLib = (function(){
     		document.oncontextmenu = new Function( "alert( my.message ); return false" );
     	};
     };
+    
+    return new Library();
     
 })();
