@@ -1,15 +1,35 @@
 /** ==================================================================================
- * Include this (concatenate to it) for global definitions
+ * 
+ *  Include this (concatenate to it) for global definitions
  *
- * Kibble Games Gobal Helper Library.
+ *  Kibble Games Gobal Helper Library.
  *
  *  This library contains extensions to JavaScript, jQuery and other components
  *  to add some helper functionality to any JS app.
  *
  *  @author: Scott Henshaw
- *  @copyright: 2014 Kibble Games Inc in cooperation with Vancouver Film School.
+ *  @copyright: 2014-2016 Kibble Games Inc in cooperation with Vancouver Film School.
  *
+ *  Permission is hereby granted, free of charge, to any person obtaining a
+ *  copy of this software and associated documentation files (the "Software"),
+ *  to deal in the Software without restriction, including without limitation
+ *  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ *  and/or sell copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included
+ *  in all copies or substantial portions of the Software.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ *  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ *  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ *  DEALINGS IN THE SOFTWARE.
+ *  
  */
+
 
 
 /** ==================================================================================
@@ -44,6 +64,16 @@ Function.prototype.extends = function( parentClassOrObject ){
 	return this;
 };
 
+
+Function.prototype.def = function( baseClassorObject ) {
+    
+    if (baseClassorObject == Function) {
+        
+        this.prototype = baseClassorObject.prototype;
+        this.prototype.constructor = this;
+    }
+    return this;
+};
 
 
 /** ==================================================================================
@@ -116,9 +146,40 @@ Function.prototype.extends = function( parentClassOrObject ){
 })(jQuery);
 
 
+
+
+/** ==================================================================================
+*
+* @name KLib
+* 
+* A redirect function to enable us to define an Object to use as a template or definition
+* for creating more objects much the same way Classes are used in static languages
+* while retaining all of the unique JavaScript properties
+* 
+* @useage 
+* 
+*/
+
+
+/** ==================================================================================
+*
+* @name KLib
+*
+* Cute little library of helper routines to manage apps in a more robust manner use with care.
+*
+* @author: Scott Henshaw
+*
+*/
+var KLib;
+
+KLib.prototype.init = function() {
+    
+}
+
+
 /** ==================================================================================
  *
- * @name app.disableSource();
+ * @name KLib.disableSource();
  *
  * Cute little singleton to contain the code redirecting and disabling some of the right click
  * menu functionality (copy save images, view source in most browsers.   use with care.
@@ -126,7 +187,7 @@ Function.prototype.extends = function( parentClassOrObject ){
  * @author: Scott Henshaw
  *
  */
-var disable = (function() {
+KLib.prototype.disableSource = (function() {
 
     function DisableSingleton() {
     
