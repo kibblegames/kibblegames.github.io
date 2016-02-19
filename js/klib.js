@@ -77,18 +77,18 @@ Function.prototype.def = function( baseClassorObject ) {
 
 
 /** ==================================================================================
- *
- * @name $.include() - async load/include a JavaScript source file at this point
- *
- * Javascript does not natively have includes relying on the HTML/PHP do do it
- * but dependencies are not honoured easily; so we can create our own.
- * This makes a global include function that can be called to use AJAX to load a script
- *
- * @usage: $.include( "js/subscript.js" );
- *
- * @author: Scott Henshaw
- *
- */
+*
+* @name $.include() - async load/include a JavaScript source file at this point
+*
+* Javascript does not natively have includes relying on the HTML/PHP do do it
+* but dependencies are not honoured easily; so we can create our own.
+* This makes a global include function that can be called to use AJAX to load a script
+*
+* @usage: $.include( "js/subscript.js" );
+*
+* @author: Scott Henshaw
+*
+*/
 (function($){
 
 	$.include = function( script ) {
@@ -147,20 +147,6 @@ Function.prototype.def = function( baseClassorObject ) {
 
 
 
-
-/** ==================================================================================
-*
-* @name KLib
-* 
-* A redirect function to enable us to define an Object to use as a template or definition
-* for creating more objects much the same way Classes are used in static languages
-* while retaining all of the unique JavaScript properties
-* 
-* @useage 
-* 
-*/
-
-
 /** ==================================================================================
 *
 * @name KLib
@@ -170,36 +156,38 @@ Function.prototype.def = function( baseClassorObject ) {
 * @author: Scott Henshaw
 *
 */
-var KLib;
-
-KLib.prototype.init = function() {
+var KLib = (function(){
     
-}
-
-
-/** ==================================================================================
- *
- * @name KLib.disableSource();
- *
- * Cute little singleton to contain the code redirecting and disabling some of the right click
- * menu functionality (copy save images, view source in most browsers.   use with care.
- *
- * @author: Scott Henshaw
- *
- */
-KLib.prototype.disableSource = (function() {
-
-    function DisableSingleton() {
+    function Library() {
+        var self = this;
+        self.init();
+    };
+        
+    Library.prototype.init = function() {
+            
+    };
+                
+    Library.prototype.disableSource = function() {
+        /** ==================================================================================
+        *
+        * @name KLib.disableSource();
+        *
+        * Cute little singleton to contain the code redirecting and disabling some of the right click
+        * menu functionality (copy save images, view source in most browsers.   use with care.
+        *
+        * @author: Scott Henshaw
+        *
+        */
     
         // local private members
-    	var my = { 
+    	var m = { 
 	        message: "Function Disabled!"
     	};
     
     	this.clickIE4 = function( event ) {
     
     		if (event.button == 2) {
-    			alert( my.message );
+    			alert( m.message );
     			return false;
     		}
     	};
@@ -230,12 +218,6 @@ KLib.prototype.disableSource = (function() {
     	};
     };
     
-    // Note that to return a singleton we will create the internal object here.
-    return new DisableSingleton();
-
-})();
-// Global initialization if required
-(function() {
-
-	// vfs.disableSource();  // uncomment this line to disable the right click view source action in most browsers
+    return new Library();
+    
 })();
