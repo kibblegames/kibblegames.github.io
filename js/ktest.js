@@ -43,12 +43,13 @@ var KTest = (function() {
         $head.append('<link rel="stylesheet" type="text/css" href="//code.jquery.com/qunit/qunit-1.21.0.css" >');
         
         var testResultsMarkup = '<div id="ktest-results" >';
-        testResultsmarkup +=        '<div id="qunit-tests"></div>';
-        testResultsmarkup +=        '<div id="qunit-fixture"></div>';
-        testResultsmarkup +=        '<script src="//code.jquery.com/qunit/qunit-1.21.0.js"></script>';
-        testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
-        testResultsmarkup +=        '<script src="js/ape_test.js"></script>';
-        testResultsmarkup +=    '</div>';
+        testResultsMarkup +=        '<div id="qunit-tests"></div>';
+        testResultsMarkup +=        '<div id="qunit-fixture"></div>';
+        testResultsMarkup +=        '<script src="//code.jquery.com/qunit/qunit-1.21.0.js"></script>';
+        testResultsMarkup +=        '<script src="js/ape_test.js"></script>';
+        testResultsMarkup +=        '<script src="js/ape_test.js"></script>';
+        testResultsMarkup +=    '</div>';
+        
         var $body = $('body');
         $body.append( testResultsMarkup );
         
