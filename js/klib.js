@@ -108,7 +108,6 @@ Function.prototype.def = function( baseClassorObject ) {
 	        }
 	    });
 	};
-
 	
 	$.postJSON = function( url, data, callback ) {
 		/**
@@ -156,7 +155,7 @@ Function.prototype.def = function( baseClassorObject ) {
 * @author: Scott Henshaw
 *
 */
-var KLib = (function(){
+var Kibble = (function(){
     
     function Library() {
         var self = this;
@@ -164,13 +163,42 @@ var KLib = (function(){
     };
         
     Library.prototype.init = function() {
-            
+        // If we ever need tin initialize stuff, here it goes.
     };
+    
+    Library.prototype.objFromResponse = function( data ) {
+        /** ==============================================================================
+         * 
+         *  @name objFromResponse
+         *  
+         *  Generate a JS object from some AJAX response data. Library method determines the 
+         *  type of returned data and if its already been converted to an object leave it alone, 
+         *  otherwise if its a string, decode it into an object
+         *  
+         *  @author Scott Henshaw
+         */
+        var result = null; 
+        switch (typeof data) {
+            case 'string':
+                var result = JSON.parse( data );
+                break;
+                
+            case 'object':
+                var result = data;
+                break;
+            
+            default:
+                var result = null; 
+                break;
+        }
+        return result;
+    };
+    
                 
     Library.prototype.disableSource = function() {
         /** ==================================================================================
         *
-        * @name KLib.disableSource();
+        * @name Kibble.disableSource();
         *
         * Cute little singleton to contain the code redirecting and disabling some of the right click
         * menu functionality (copy save images, view source in most browsers.   use with care.
@@ -221,3 +249,5 @@ var KLib = (function(){
     return new Library();
     
 })();
+
+var $K = Kibble;

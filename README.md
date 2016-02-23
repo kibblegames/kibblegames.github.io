@@ -12,7 +12,8 @@ Add the following to your head section AFTER jQuery CDN is defined.
 ### JavaScript Extensions
 
 ### .extends( parentObject )
-    This extension uses Douglas Crockfords prototypal inheritance example and encapsulates it within a single extension to the Function object.
+    This extension uses Douglas Crockfords prototypal inheritance example and encapsulates
+    it within a single extension to the Function object.
     Define an object, then identify which parent object it extends
     
     function ChildObject( opt1, opt2 ) {
