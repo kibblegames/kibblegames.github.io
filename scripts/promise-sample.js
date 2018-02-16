@@ -25,11 +25,11 @@ const showOff = function (phone) {
 };
 
 // call our promise
-const askMom = function () {
+function askMom() {
     willIGetNewPhone
-        .then(showOff)
-        .then(fulfilled => console.log(fulfilled)) // fat arrow
-        .catch(error => console.log(error.message)); // fat arrow
+        .then( showOff )
+        .then( fulfilled => console.log( fulfilled )) // fat arrow
+        .catch( error => console.log( error.message )); // fat arrow
 };
 
 askMom();

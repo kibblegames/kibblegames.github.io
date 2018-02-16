@@ -29,7 +29,7 @@
 
 'use strict';
 
-class ktest {
+export default class ktest {
 
     constructor() {
 

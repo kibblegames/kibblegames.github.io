@@ -4,15 +4,15 @@
  * @Copyright 2014-2017, Kibble Games Inc, in cooperation with VFS.  All Rights Reserved.
  * @usage
  *   // in constructor
- *   let my = app.private( this, somePrivateDataObject );
+ *   let m = MyPrivate.members( this, somePrivateDataObject );
  *
  *   // in methods
- *   let my = app.private( this );
+ *   let m = MyPrivate.members( this );
  *
  */
 'use strict';
 
-class kAppPrivateData {
+export default class kAppPrivateData {
 
     constructor() {
         this._privateData = new WeakMap();

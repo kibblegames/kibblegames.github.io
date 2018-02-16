@@ -1,5 +1,7 @@
 # Kibble Games Utility Lib CDN Library
 A simple library to encapsulate a couple extensions to javascript Function objects and jQuery
+As of 2018 this library CDn has been superceded by native ECMAScript, some modules or components
+as part of the scripts folder may still be useful.
 
 ## Installation
 Add the following to your head section AFTER jQuery CDN is defined.
@@ -15,11 +17,11 @@ Add the following to your head section AFTER jQuery CDN is defined.
     This extension uses Douglas Crockfords prototypal inheritance example and encapsulates
     it within a single extension to the Function object.
     Define an object, then identify which parent object it extends
-    
+
     function ChildObject( opt1, opt2 ) {
-            
+
         // Do something with options
-    
+
         Parent.call( this, opt1, opt2 );
     }
     ChildObject.extends( parent );

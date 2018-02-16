@@ -49,7 +49,7 @@
 
 // Lets make this ES6 class functional, and make it's API
 // very similar to the jQuery and Angular versions.
-class khttp {
+export default class khttp {
 
     // Method that performs the ajax request
     static _ajax( method, url, args ) {
